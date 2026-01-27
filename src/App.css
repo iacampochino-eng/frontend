@@ -1,0 +1,15 @@
+.sidebar {
+  background-color: hsl(var(--sidebar));
+  color: hsl(var(--sidebar-foreground));
+  border: 1px solid hsl(var(--sidebar-border));
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.sidebar a {
+  color: hsl(var(--sidebar-primary));
+}
+
+.sidebar a:hover {
+  color: hsl(var(--sidebar-primary-foreground));
+}
