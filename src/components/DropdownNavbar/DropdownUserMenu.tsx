@@ -1,15 +1,13 @@
 import { LogOut, House, Video, Database } from "lucide-react";
 import FloatingActionMenu from "./FloatingMenu";
 import { useSession } from "@/context/useSession";
-import { useNavigate } from "react-router-dom";
 
 export const DropdownUserMenu = () => {
   const { logout } = useSession();
-  const navigate = useNavigate();
   const handleLogout = async () => {
     try {
       logout();
-      navigate("/");
+      window.location.href = "/";
     } catch (error) {
       console.error("Error al hacer logout:", error);
     }
@@ -22,18 +20,18 @@ export const DropdownUserMenu = () => {
         {
           label: "Crear estancia",
           Icon: <House className="w-4 h-4" />,
-          onClick: () => navigate("/crear-estancia"),
+          onClick: () => window.location.href = "/crear-estancia",
         },
         {
           label: "Cargar operación",
           Icon: <Video className="w-4 h-4" />,
-          onClick: () => navigate("/upload-video"),
+          onClick: () => window.location.href = "/upload-video",
         },
 
         {
           label: "Resumen",
           Icon: <Database className="w-4 h-4" />,
-          onClick: () => navigate("/resumen"),
+          onClick: () => window.location.href = "/resumen",
         },
         {
           label: "Cerrar sesión",

@@ -53,12 +53,13 @@ export function AppSidebar() {
 
   // console.log("estancia info", infoEstancia);
 
+
   return (
     <Sidebar className="border-r border-gray-800 " data-slot="sidebar">
-      <SidebarHeader className="border-b border-gray-700 p-4">
+      <SidebarHeader className="border-b border-gray-700 p-[28px]">
         <div className="flex items-center gap-3 mb-4">
           <Avatar className="h-10 w-10">
-            <AvatarImage src="https://xnbukikosdcaggqnvybb.supabase.co/storage/v1/object/public/avatar//farmer.png" />
+            <AvatarImage src="https://csrxjswvzmdwujsvmhar.supabase.co/storage/v1/object/public/avatar/chino.png" />
             <AvatarFallback className="bg-blue-600 text-white">
               {user?.username.slice(0, 2).toUpperCase()}
             </AvatarFallback>

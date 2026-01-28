@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/tooltip";
 
 import { Input } from "@/components/ui/input";
-import { useNavigate } from "react-router-dom";
 import { useSession } from "@/context/useSession";
 
 interface FormData {
@@ -28,7 +27,6 @@ export const Register: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
 
   const {
     register,
@@ -67,7 +65,7 @@ export const Register: React.FC = () => {
         ),
       });
 
-      navigate("/dashboard");
+      window.location.href = "/dashboard";
     } else {
       toast("Datos incorrectos", {
         description: result.message || "Error al registrarse.",

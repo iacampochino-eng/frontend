@@ -1,5 +1,3 @@
-
-
 import type React from "react";
 import { useEffect, useState } from "react";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -43,7 +41,7 @@ export default function UploadVideoWizard() {
   >(null);
   const [data, setData] = useState<IDataYolo | null>(null);
   const [tiempoEstimadoTexto, setTiempoEstimadoTexto] = useState<string | null>(
-    null
+    null,
   );
   const [segundosDeProcesamiento, setSegundosDeProcesamiento] =
     useState<number>();
@@ -54,6 +52,15 @@ export default function UploadVideoWizard() {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      // Validar tamaño máximo de 50 MB
+
+    const maxSize = 50 * 1024 * 1024; // 50 MB en bytes
+    if (file.size > maxSize) {
+      alert("❌ El archivo excede el tamaño máximo permitido de 50 MB.");
+      e.target.value = ""; // Limpiar el input
+      setVideoFile(null);
+      return;
+    }
       setVideoFile(file);
       setData(null);
       setTiempoEstimadoTexto(null);
@@ -90,7 +97,7 @@ export default function UploadVideoWizard() {
         {
           method: "POST",
           body: formData,
-        }
+        },
       );
 
       if (!res.ok) throw new Error("Error al procesar el video");
@@ -111,16 +118,14 @@ export default function UploadVideoWizard() {
   const checkVideoStatus = async (taskId: string) => {
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_FRONTEND_URL}/yolo/estado-tarea/${taskId}`
+        `${import.meta.env.VITE_FRONTEND_URL}/yolo/estado-tarea/${taskId}`,
       );
       const data = await res.json();
 
       if (data.state === "PROGRESS") {
         setLoading(true); // Mantener el loading encendido
         setTimeout(() => checkVideoStatus(taskId), 2000); // Seguimos haciendo polling
-      }
-
-      else if (data.state === "SUCCESS" && data.result?.video_url) {
+      } else if (data.state === "SUCCESS" && data.result?.video_url) {
         setVideoUrl(data.result.video_url); // Mostralo en un <video />
         setData(data.result);
         setCurrentStep(3); // o el paso que corresponda
@@ -145,7 +150,7 @@ export default function UploadVideoWizard() {
         `${import.meta.env.VITE_BACKEND_URL}/yolo/eliminar-video/${video_id}`,
         {
           method: "DELETE",
-        }
+        },
       );
       console.log(response);
 
@@ -168,7 +173,6 @@ export default function UploadVideoWizard() {
     } catch (error) {
       console.error("Error eliminando video:", error);
       alert("No se pudo eliminar el video");
-
     }
   }
 
@@ -179,18 +183,17 @@ export default function UploadVideoWizard() {
     const obtenerEstancias = async () => {
       if (!user?.id) return;
       const res = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/info_estancia/${user.id}`
+        `${import.meta.env.VITE_BACKEND_URL}/info_estancia/${user.id}`,
       );
 
       if (!res.ok) {
-        console.error('Error fetching estancias:', res.status, res.statusText);
+        console.error("Error fetching estancias:", res.status, res.statusText);
         return;
       }
 
       const data = await res.json();
       setEstancias(data);
       console.log(data);
-
     };
 
     obtenerEstancias();
@@ -216,10 +219,11 @@ export default function UploadVideoWizard() {
               {estancias.map((estancia) => (
                 <div
                   key={estancia.id}
-                  className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${estanciaSeleccionada === estancia.id
-                    ? "border-primary bg-primary/5"
-                    : "border-gray-200 hover:border-gray-300"
-                    }`}
+                  className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                    estanciaSeleccionada === estancia.id
+                      ? "border-primary bg-primary/5"
+                      : "border-gray-200 hover:border-gray-300"
+                  }`}
                   onClick={() => setEstanciaSeleccionada(estancia.id)}
                 >
                   <div className="flex items-center justify-between">
@@ -358,15 +362,17 @@ export default function UploadVideoWizard() {
 
   const renderStep3 = () => (
     <div className="space-y-6 border-0 shadow-lg bg-gradient-to-br from-slate-800 to-slate-900">
-
       <Card className="shadow-md">
         {loading || !data ? (
           // 🌀 Mostrar animación de carga
           <div className="flex flex-col items-center justify-center space-y-4 py-8">
-            <AnimationCircleProgress animationDuration={segundosDeProcesamiento!} />
+            <AnimationCircleProgress
+              animationDuration={segundosDeProcesamiento!}
+            />
 
             <p className="text-sm text-gray-500 text-center">
-              El video se está procesando. Este análisis puede tardar algunos minutos.
+              El video se está procesando. Este análisis puede tardar algunos
+              minutos.
             </p>
             {tiempoEstimadoTexto && (
               <p className="text-sm text-gray-500 text-center max-w-md">
@@ -382,7 +388,8 @@ export default function UploadVideoWizard() {
                 ✅ Análisis Completado
               </CardTitle>
               <p className="text-sm text-gray-500">
-                Resumen del video "{data.video_name}" procesado para la estancia:{" "}
+                Resumen del video "{data.video_name}" procesado para la
+                estancia:{" "}
                 <Badge variant="secondary">{selectedEstancia?.nombre}</Badge>
               </p>
             </CardHeader>
@@ -411,7 +418,9 @@ export default function UploadVideoWizard() {
                 </div>
                 <div className="p-4 rounded-lg">
                   <div className="text-sm text-gray-500">Total de animales</div>
-                  <div className="text-xl font-semibold">{data.total_animales}</div>
+                  <div className="text-xl font-semibold">
+                    {data.total_animales}
+                  </div>
                 </div>
               </div>
 
@@ -491,7 +500,6 @@ export default function UploadVideoWizard() {
       )}
     </div>
   );
-
 
   // console.log("🎬 URL del video 2:", videoUrl);
 

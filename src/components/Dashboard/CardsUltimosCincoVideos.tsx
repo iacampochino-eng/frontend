@@ -3,12 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { useEffect, useState } from "react";
 import { IDataYolo } from "@/interfaces/info-video";
 import { Projector, Video } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+
 
 export const CardsUltimosCincoVideos = () => {
   const [videos, setVideos] = useState<IDataYolo[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+
 
   const handleEstanciaChange = async () => {
     setIsLoading(true);
@@ -53,7 +53,7 @@ export const CardsUltimosCincoVideos = () => {
             <div className="text-right">
               <p
                 className="text-sm text-gray-400 cursor-pointer"
-                onClick={() => navigate("/resumen")}
+                onClick={() => window.location.href = "/resumen"}
               >
                 Ver todos
               </p>

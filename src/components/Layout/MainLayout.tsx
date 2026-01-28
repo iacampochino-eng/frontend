@@ -1,12 +1,10 @@
 import { AppSidebar } from "@/components/Dashboard/AppSidebar";
 import { Button } from "../ui/button";
 import { SidebarInset, SidebarProvider } from "../ui/sidebar";
-import { Mail } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import { DropdownUserMenu } from "../DropdownNavbar/DropdownUserMenu";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
-  const navigate = useNavigate();
+
   return (
     <SidebarProvider defaultOpen={true}>
       <AppSidebar />
@@ -14,26 +12,33 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
         <header className="border-b border-gray-700 bg-gray-800 px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
-              <h1 className="text-xl font-bold text-white">IAgro</h1>
+
+               <img
+                        src="https://csrxjswvzmdwujsvmhar.supabase.co/storage/v1/object/public/avatar/iagrologo2-removebg-preview.png"
+                        alt="IAgro"
+                        className="w-20 h-20 object-cover"
+                      />
             </div>
             <div className="flex items-center gap-4">
               <Button
-                onClick={() => navigate("/crear-estancia")}
+                onClick={() => window.location.href = "/crear-estancia"}
                 className="bg-primary"
               >
                 + Crear estancia
               </Button>
 
-              <Button
+              {/* <Button
                 onClick={() => navigate("/upload-video")}
                 className="bg-primary"
               >
                 + Peso Promedio
-              </Button>
+              </Button> */}
 
-              <Button variant="ghost" size="icon" className="text-gray-400">
+              {/* <Button variant="ghost" size="icon" className="text-gray-400">
                 <Mail className="h-5 w-5" />
-              </Button>
+              </Button> */}
+
+
               <DropdownUserMenu />
             </div>
           </div>

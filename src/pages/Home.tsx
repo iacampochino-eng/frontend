@@ -1,13 +1,12 @@
 import LoginPage from "@/components/Auth/Login/Login";
 import { useSession } from "@/context/useSession";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  
   const { user } = useSession();
-  const navigate = useNavigate();
   if (user) {
-    navigate("/dashboard");
+    window.location.href = "/dashboard";
     return null;
   }
 

@@ -1,5 +1,3 @@
-
-
 import { CircleHelp, User } from "lucide-react";
 import {
   NavigationMenu,
@@ -44,10 +42,13 @@ export default function Navbar() {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/logout`, {
-        method: "POST",
-        credentials: "include", // 🔐 Esto es CLAVE para enviar cookies
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/users/logout`,
+        {
+          method: "POST",
+          credentials: "include", // 🔐 Esto es CLAVE para enviar cookies
+        },
+      );
 
       if (res.ok) {
         console.log("Logout exitoso");
@@ -66,7 +67,7 @@ export default function Navbar() {
       <section
         className={cn(
           "fixed z-50 w-full md:w-[80.9vw] transition-all duration-300 ease-in-out",
-          visible ? "top-4" : "-top-full"
+          visible ? "top-4" : "-top-full",
         )}
       >
         <div className="bg-[#242425] rounded-3xl  ">
@@ -78,8 +79,12 @@ export default function Navbar() {
                   <a href={"/"} className="flex-shrink-0 w-auto h-auto">
                     {/* Mobile Menu Button */}
                     {/* <MobileNav className="hidden dark:text-white text-white" /> */}
-                    <div className="block 2xl:block relative w-[170px]  text-white text-xl">
-                      IAgro
+                    <div className="block 2xl:block relative w-[170px]">
+                      <img
+                        src="https://csrxjswvzmdwujsvmhar.supabase.co/storage/v1/object/public/avatar/iagrologo1.jpg"
+                        alt="IAgro"
+                        className="w-full h-auto object-contain"
+                      />
                     </div>
                   </a>
                   {/* DESK NAVIGATION LINKS */}
@@ -94,7 +99,7 @@ export default function Navbar() {
                               className={cn(
                                 "font-bold text-[14px] mr-11",
 
-                                "hover:text-[#E7E3E3]"
+                                "hover:text-[#E7E3E3]",
                               )}
                             >
                               Videos
@@ -102,7 +107,7 @@ export default function Navbar() {
                             <a
                               href={"/programas"}
                               className={cn(
-                                "font-bold text-[14px] mr-11 hover:text-[#E7E3E3]"
+                                "font-bold text-[14px] mr-11 hover:text-[#E7E3E3]",
                               )}
                             >
                               Reportes
@@ -110,7 +115,7 @@ export default function Navbar() {
                             <a
                               href={"/programas"}
                               className={cn(
-                                "font-bold text-[14px] mr-11 hover:text-[#E7E3E3]"
+                                "font-bold text-[14px] mr-11 hover:text-[#E7E3E3]",
                               )}
                             >
                               Mi Perfil
@@ -118,7 +123,7 @@ export default function Navbar() {
                             <a
                               href={"/programas"}
                               className={cn(
-                                "font-bold text-[14px] mr-11 hover:text-[#E7E3E3]"
+                                "font-bold text-[14px] mr-11 hover:text-[#E7E3E3]",
                               )}
                             >
                               Planes
@@ -126,7 +131,7 @@ export default function Navbar() {
                             <a
                               href={"/programas"}
                               className={cn(
-                                "font-bold text-[14px] mr-11 hover:text-[#E7E3E3]"
+                                "font-bold text-[14px] mr-11 hover:text-[#E7E3E3]",
                               )}
                             >
                               Soporte
@@ -208,7 +213,7 @@ export const ListItem = React.forwardRef<
           ref={ref}
           className={cn(
             "first-line:block select-none h-full  rounded-md leading-none no-underline outline-none transition-colors  ",
-            className
+            className,
           )}
           {...props}
         >

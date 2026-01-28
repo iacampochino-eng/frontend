@@ -20,7 +20,7 @@ const FloatingActionMenu = ({
   className,
 }: FloatingActionMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user } = useSession();
+  // const { user } = useSession();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -44,14 +44,14 @@ const FloatingActionMenu = ({
           <div className="relative h-[38px] w-[38px]">
             <Avatar className="h-full w-full p-0 m-0">
               <AvatarImage
-                src="https://xnbukikosdcaggqnvybb.supabase.co/storage/v1/object/public/avatar//farmer.png"
+                src="https://csrxjswvzmdwujsvmhar.supabase.co/storage/v1/object/public/avatar/chino.png"
                 alt="profile"
                 className="h-full w-full object-cover"
               />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-white text-xs font-bold rounded-full z-10 pointer-events-none">
-              {user?.username?.slice(0, 4).toUpperCase() || "CN"}
+              {/* {user?.username?.slice(0, 4).toUpperCase() || "CN"} */}
             </div>
           </div>
         </motion.div>

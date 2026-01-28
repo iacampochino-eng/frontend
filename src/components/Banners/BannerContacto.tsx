@@ -27,7 +27,7 @@ export const BannerContacto = () => {
             <Button
               onClick={() => {
                 window.location.href =
-                  "https://api.whatsapp.com/send?phone=5491165319819&text=Hola%2C%20quiero%20consultar%20algo";
+                  "https://api.whatsapp.com/send?phone=1160047133&text=Hola%2C%20quiero%20consultar%20algo";
               }}
               variant="secondary"
               className="bg-black text-white hover:bg-gray-900"

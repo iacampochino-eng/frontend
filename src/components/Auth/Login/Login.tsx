@@ -8,8 +8,6 @@ import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
 import { Register } from "../Register/Register";
 import { Label } from "@/components/ui/label";
 import { Toaster, toast } from "sonner";
-
-import { useNavigate } from "react-router-dom";
 import { useSession } from "@/context/useSession";
 
 // VideoBackground Component
@@ -55,7 +53,6 @@ interface FormData {
 const LoginForm: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const navigate = useNavigate();
 
   const {
     register,
@@ -85,7 +82,7 @@ const LoginForm: React.FC = () => {
           </button>
         ),
       });
-      navigate("/dashboard");
+      window.location.href = "/dashboard";
       // window.location.href = "/dashboard";
     } catch (error: any) {
       toast("Error al iniciar sesión", {

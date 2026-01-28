@@ -6,7 +6,6 @@ import { useState } from "react";
 import { CheckCircle, X } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { useNavigate } from "react-router-dom";
 import { useSession } from "@/context/useSession";
 import MainLayout from "@/components/Layout/MainLayout";
 
@@ -51,7 +50,6 @@ const crearEstancia = async (
 const CrearEstancia = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
 
   const { user } = useSession();
 
@@ -96,7 +94,7 @@ const CrearEstancia = () => {
       reset(); // Limpia los campos
 
       setTimeout(() => {
-        navigate("/dashboard");
+      window.location.replace('/dashboard')
       }, 3000);
     } else {
       toast("Datos incorrectos", {
