@@ -18,8 +18,8 @@ export const CardsUltimosCincoVideos = () => {
         `${import.meta.env.VITE_BACKEND_URL}/yolo/ultimos-videos`
       );
       const data = await res.json();
-
-      setVideos(data);
+      // Asegurarse de que sea un array
+      setVideos(Array.isArray(data.videos) ? data.videos : []);
     } catch (error) {
       console.error("Error al obtener videos:", error);
       setVideos([]);
@@ -62,7 +62,7 @@ export const CardsUltimosCincoVideos = () => {
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            {videos.map((project, index) => (
+            {videos?.map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 10 }}
