@@ -13,7 +13,7 @@ export const menuItems = [
     isActive: true,
   },
   {
-    title: "Cargar operación",
+    title: "Subir Video",
     icon: Upload,
     url: "/upload-video",
   },

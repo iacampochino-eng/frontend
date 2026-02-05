@@ -23,7 +23,7 @@ export const DropdownUserMenu = () => {
           onClick: () => window.location.href = "/crear-estancia",
         },
         {
-          label: "Cargar operación",
+          label: "Subir video",
           Icon: <Video className="w-4 h-4" />,
           onClick: () => window.location.href = "/upload-video",
         },

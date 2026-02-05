@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import { CheckCircle, Eye, EyeOff, X } from "lucide-react";
 // import { Button } from "@/components/ui/button";
@@ -130,12 +129,21 @@ const LoginForm: React.FC = () => {
             <div className="mb-8 text-center ">
               <h2 className="text-3xl font-bold mb-2 relative group">
                 <span className="absolute -inset-1 bg-gradient-to-r from-purple-600/30 via-pink-500/30 to-blue-500/30 blur-xl opacity-75 group-hover:opacity-100 transition-all duration-500 animate-pulse"></span>
+                  <div     className="w-full flex justify-center mb-4">
+                    <img
+                    src="https://csrxjswvzmdwujsvmhar.supabase.co/storage/v1/object/public/avatar/aaaa-removebg-preview.png"
+                    alt="Paisaje"
+                    className="w-40 h-40 object-cover rounded-lg shadow-md"
+                                    />
+                  </div>
                 <span className="relative inline-block text-3xl font-bold mb-2 text-white">
                   Ingresar
                 </span>
                 <span className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
               </h2>
               <div className="text-white/80 flex flex-col items-center space-y-1">
+             
+
                 <span className="relative group cursor-default">
                   <span className="absolute -inset-1 bg-gradient-to-r from-purple-600/20 to-pink-600/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                   <span className="relative inline-block animate-pulse">
@@ -213,10 +221,11 @@ const LoginForm: React.FC = () => {
               <button
                 type="submit"
                 // disabled={isSubmitting}
-                className={`cursor-pointer w-full py-3 rounded-lg ${isSubmitting
+                className={`cursor-pointer w-full py-3 rounded-lg ${
+                  isSubmitting
                     ? "animate-success"
                     : "bg-purple-600 hover:bg-purple-700"
-                  }  text-white font-medium transition-all duration-200 ease-in-out transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40`}
+                }  text-white font-medium transition-all duration-200 ease-in-out transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40`}
               >
                 {isSubmitting ? "Ingresando..." : "Ingresar"}
               </button>

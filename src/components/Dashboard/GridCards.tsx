@@ -40,7 +40,7 @@ export const GridCards = () => {
       >
         <Card
           className="bg-gray-800 border-gray-700 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-[1.009] hover:shadow-lg"
-          onClick={() => (window.location.href = "/upload-video")}
+          onClick={() => (window.location.href = "/resumen")}
         >
           <CardContent className="px-6">
             <div className="flex items-center justify-between mb-3">
@@ -65,7 +65,7 @@ export const GridCards = () => {
       >
         <Card
           className="bg-gray-800 border-gray-700 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-[1.009] hover:shadow-lg"
-          onClick={() => (window.location.href = "/upload-video")}
+          onClick={() => (window.location.href = "#/upload-video")}
         >
           <CardContent className="px-6">
             <div className="flex items-center justify-between mb-3">
@@ -90,7 +90,7 @@ export const GridCards = () => {
       >
         <Card
           className="bg-gray-800 border-gray-700 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-[1.009] hover:shadow-lg"
-          onClick={() => (window.location.href = "/upload-video")}
+          onClick={() => (window.location.href = "/doc")} 
         >
           <CardContent className="px-6">
             <div className="flex items-center justify-between mb-3">

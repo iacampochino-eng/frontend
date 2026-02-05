@@ -210,7 +210,7 @@ const VideoPreviewModal: React.FC<VideoPreviewModalProps> = ({
                 <Video className="h-5 w-5 mr-2 text-slate-400" />
                 <span className="text-sm">
                   <a href={ganadoData.videoUrl} target="_blank">
-                    Ver video procesado
+                    Descargar video procesado
                   </a>
                 </span>
               </motion.div>

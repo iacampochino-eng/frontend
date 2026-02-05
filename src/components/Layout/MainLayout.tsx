@@ -14,7 +14,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
             <div className="flex items-center gap-6">
 
                <img
-                        src="https://csrxjswvzmdwujsvmhar.supabase.co/storage/v1/object/public/avatar/iagrologo2-removebg-preview.png"
+                        src="https://csrxjswvzmdwujsvmhar.supabase.co/storage/v1/object/public/avatar/aaaa-removebg-preview.png"
                         alt="IAgro"
                         className="w-20 h-20 object-cover"
                       />

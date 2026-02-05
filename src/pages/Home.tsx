@@ -30,7 +30,7 @@ export default function Home() {
         </div>
 
         <footer className="absolute bottom-4 left-0 right-0 text-center text-white/60 text-sm z-20">
-          © 2025 IAgro. Todos los derechos reservados.
+          © 2026 IAgro. Todos los derechos reservados.
         </footer>
       </div>
     </div>

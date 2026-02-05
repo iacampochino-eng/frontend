@@ -70,9 +70,7 @@ const DocumentacionPage = () => {
               permitir una detección óptima.
             </li>
             <li>
-              Si solo deseas contabilizar la cantidad de vacas sin el peso, no
-              es necesario el pasillo ni respetar la altura estricta; el dron
-              puede estar a mayor altura.
+             El peso maximo del archivo de video es de 50MB.
             </li>
           </ul>
           <AlertTriangle
